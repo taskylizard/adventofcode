@@ -1,0 +1,35 @@
+{
+  "name": "aocity",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "aoc": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src -f pretty"
+  },
+  "keywords": [
+    "aoc",
+    "adventofcode"
+  ],
+  "author": "taskylizard",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "chokidar": "^3.5.3",
+    "citty": "^0.1.5",
+    "consola": "^3.2.3",
+    "dotenv": "^16.3.1",
+    "esbuild": "^0.19.8",
+    "execa": "^8.0.1",
+    "pathe": "^1.1.1",
+    "perfect-debounce": "^1.0.0"
+  }
+}

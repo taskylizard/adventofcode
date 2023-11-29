@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+inputs
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+packages/aocity/.eslintcache
