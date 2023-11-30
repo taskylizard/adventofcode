@@ -1,17 +1,16 @@
 import fsp from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { join, resolve } from "pathe";
+import { join } from "pathe";
 import { fetchInstructions, fetchPuzzle, log } from "./utils";
 import type { Config } from "./types";
 
-export function generatePackageJSON(year: string) {
+export function generatePackageJSON(year: string): string {
   return JSON.stringify(
     {
       name: year,
       version: "1.0.0",
       type: "module",
       scripts: {
-        init: "aoc init",
         start: "aoc start",
       },
       keywords: ["aoc", "adventofcode"],
@@ -22,25 +21,27 @@ export function generatePackageJSON(year: string) {
   );
 }
 
-async function generateConfig(template: string, year: string) {
-  const defaultDay = { solved: false, result: null, time: null };
-  let runner = null;
-  if (template && existsSync(resolve(join(template, ".aocity.json")))) {
-    const config = JSON.parse(
-      await fsp.readFile(join(template, ".aocity.json"), { encoding: "utf8" }),
-    );
+export async function readConfig(year: string): Promise<Config> {
+  return JSON.parse(await fsp.readFile(join(year, ".aocity.json"), { encoding: "utf-8" }));
+}
 
-    if (config.runner !== undefined) runner = config.runner;
-  }
+async function saveConfig(year: string, config: Config): Promise<void> {
+  const data = JSON.stringify(config, null, 2);
+  await fsp.writeFile(join(year, ".aocity.json"), data);
+}
 
+export async function generateConfig(year: string): Promise<string> {
   return JSON.stringify(
     {
-      runner,
       year: Number(year),
       days: Object.fromEntries(
         Array.from({ length: 25 }, (_, index) => [
           index + 1,
-          { part1: { ...defaultDay }, part2: { ...defaultDay } },
+          {
+            runner: null,
+            part1: { solved: false, result: null, time: null },
+            part2: { solved: false, result: null, time: null },
+          },
         ]),
       ),
     } satisfies Config,
@@ -49,15 +50,16 @@ async function generateConfig(template: string, year: string) {
   );
 }
 
-export async function scaffoldDay(year: string, day: string, template: string) {
-  const dir = join(year, day);
-  await fsp.mkdir(dir, { recursive: true });
-  await fsp.cp(template, dir, { recursive: true });
-
+export async function scaffoldDay(year: string, day: string, template: string): Promise<void> {
+  // exit early if not present
   if (!process.env.AOC_SESSION) {
     log.error("AOC_SESSION enviornment variable is not set in .env file.");
     process.exit(1);
   }
+
+  const dir = join(year, day); // 2023/2
+  await fsp.mkdir(dir, { recursive: true });
+  await setRunner(year, day, template, dir);
 
   log.info("Downloading input...");
   const input = await fetchPuzzle(year, day);
@@ -66,5 +68,25 @@ export async function scaffoldDay(year: string, day: string, template: string) {
 
   const readme = await fetchInstructions(year, day);
   await fsp.writeFile(join(dir, "README.md"), readme);
-  await fsp.writeFile(join(dir, ".aocity.json"), await generateConfig(template, year));
+}
+
+async function setRunner(year: string, day: string, template: string, dir: string): Promise<void> {
+  const file = join(template, ".aocity.json");
+
+  // 1. Copy the template to our day early for typescript template
+  await fsp.cp(template, dir, { recursive: true });
+
+  // 2. Exit early if template does not have an config file
+  if (existsSync(file)) {
+    // 3. Read our template config and the root config
+    const conf = JSON.parse(await fsp.readFile(file, { encoding: "utf-8" }));
+    const config = await readConfig(year);
+
+    // 4. Write to our year root config
+    if (conf.runner !== undefined) config.days[Number(day)].runner = conf.runner;
+    await saveConfig(year, config);
+
+    // 5. Remove the temporary file
+    await fsp.rm(join(year, day, ".aocity.json"));
+  }
 }

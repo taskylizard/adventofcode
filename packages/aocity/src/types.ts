@@ -5,9 +5,12 @@ interface Day {
 }
 
 export interface Config {
-  runner: null | string;
   year: number;
   days: {
-    [day: number]: { part1: Day; part2: Day };
+    [day: number]: {
+      runner: null | string;
+      part1: Day;
+      part2: Day;
+    };
   };
 }

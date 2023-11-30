@@ -1,5 +1,4 @@
 import { existsSync } from "node:fs";
-import fsp from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { Worker } from "node:worker_threads";
 import { execa } from "execa";
@@ -9,7 +8,7 @@ import { context } from "esbuild";
 import { dirname, join, resolve } from "pathe";
 import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
-import { scaffoldDay } from "../generators";
+import { scaffoldDay, readConfig } from "../generators";
 import { log } from "../utils";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -54,65 +53,62 @@ export default defineCommand({
       log.success(`Successfully scaffolded project for day ${day}, year ${year}.`);
     }
 
-    const config = JSON.parse(
-      await fsp.readFile(resolve(join(dir, ".aocity.json")), { encoding: "utf-8" }),
-    );
-
-    if (config.runner !== null) {
-      const [cmd, ...cmdArgs] = config.runner.split(" ");
-      try {
-        const reload = debounce(async () => {
-          const { stdout } = await execa(cmd, cmdArgs);
+    const config = await readConfig(year);
+    if (config.days[Number(day)].runner !== null) {
+      const [cmd, ...cmdArgs] = config.days[Number(day)].runner!.split(" ");
+      const reload = debounce(async () => {
+        try {
+          const { stdout } = await execa(cmd, cmdArgs, { cwd: resolve(dir) });
           console.log(stdout);
-        });
+        } catch (error) {
+          log.error(`The command failed. stderr: ${error.stderr} (${error.exitCode})`);
+        }
+      });
 
-        const watcher = watch(dir, {
-          cwd: process.cwd(),
-          ignoreInitial: true,
-          ignored: [
-            // Hidden directories like .git
-            "**/.*/**",
-            // Hidden files (e.g. logs or temp files)
-            "**/.*",
-            // Built files
-            "**/dist/**",
-            // 3rd party packages
-            "**/{node_modules,bower_components,vendor}/**",
-          ],
+      const watcher = watch(dir, {
+        cwd: process.cwd(),
+        ignoreInitial: true,
+        ignored: [
+          // Hidden directories like .git
+          "**/.*/**",
+          // Hidden files (e.g. logs or temp files)
+          "**/.*",
+          // Built files
+          "**/dist/**",
+          // 3rd party packages
+          "**/{node_modules,bower_components,vendor}/**",
+        ],
+      })
+        .on("ready", async () => {
+          log.start(`Started server, listening for changes...`);
+          log.ready("🦌 Press: r to reload • q to quit");
         })
-          .on("ready", async () => {
-            log.start(`Started server, listening for changes...`);
-            log.ready("🦌 Press: r to reload • q to quit");
-          })
-          .on("all", async (change, path) => {
-            log.info(`[dev:watcher:${change}]: ${path}`);
-            await reload();
-          })
-          .on("error", (error) => log.error("[dev:watcher:error]", error));
+        .on("all", async (change, path) => {
+          log.info(`[dev:watcher:${change}]: ${path}`);
+          await reload();
+        })
+        .on("error", (error) => log.error("[dev:watcher:error]", error));
 
-        process.stdin
-          .setRawMode(true)
-          .resume()
-          .setEncoding("utf-8")
-          .on("data", async (key: string) => {
-            switch (key) {
-              case "\u0071":
-              case "\u0003":
-                log.info("Exiting.");
-                await watcher.close();
-                process.exit(0);
-              case "\u0072":
-                log.info("Reloading.");
-                await reload();
-                break;
-              default:
-                break;
-            }
-            process.stdout.write(key);
-          });
-      } catch (error) {
-        log.error(`The command failed. stderr: ${error.stderr} (${error.exitCode})`);
-      }
+      process.stdin
+        .setRawMode(true)
+        .resume()
+        .setEncoding("utf-8")
+        .on("data", async (key: string) => {
+          switch (key) {
+            case "\u0071":
+            case "\u0003":
+              log.info("Exiting.");
+              await watcher.close();
+              process.exit(0);
+            case "\u0072":
+              log.info("Reloading.");
+              await reload();
+              break;
+            default:
+              break;
+          }
+          process.stdout.write(key);
+        });
     } else {
       // Copied all from rose but removed references to it because I still haven't finished it lol
       const buildConfig: BuildOptions = {
