@@ -1,7 +1,8 @@
 {
   "name": "adventofcode",
   "scripts": {
-    "build:cli": "pnpm --filter aocity build"
+    "build:cli": "pnpm --filter aocity build",
+    "format": "prettier --cache -w ."
   },
   "author": "taskylizard",
   "license": "MIT",

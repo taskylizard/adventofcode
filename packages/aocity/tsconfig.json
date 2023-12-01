@@ -9,11 +9,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": [
-    "**/*.ts"
-, "packages/aocity/eslint.config.js"  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["**/*.ts", "packages/aocity/eslint.config.js"],
+  "exclude": ["node_modules", "dist"]
 }
