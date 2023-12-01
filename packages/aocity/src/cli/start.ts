@@ -115,6 +115,7 @@ export default defineCommand({
         entryPoints: [join(dir, "index.ts")],
         format: "esm",
         platform: "node",
+        bundle: true,
         outfile: join(dir, "dist", "index.js"),
       };
       const ctx = await context(buildConfig);

@@ -10,9 +10,6 @@ export function generatePackageJSON(year: string): string {
       name: year,
       version: "1.0.0",
       type: "module",
-      scripts: {
-        start: "aoc start",
-      },
       keywords: ["aoc", "adventofcode"],
       dependencies: {},
     },
