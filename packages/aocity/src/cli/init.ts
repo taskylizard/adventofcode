@@ -2,8 +2,8 @@ import { existsSync } from "node:fs";
 import fsp from "node:fs/promises";
 import { defineCommand } from "citty";
 import { join } from "pathe";
-import { log } from "../utils";
-import { generatePackageJSON, generateConfig } from "../generators";
+import { log } from "src/core/utils";
+import { generatePackageJSON, generateConfig } from "src/core/generators";
 
 export default defineCommand({
   meta: {

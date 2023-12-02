@@ -9,6 +9,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "2023/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

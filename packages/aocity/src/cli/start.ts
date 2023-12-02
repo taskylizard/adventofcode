@@ -7,8 +7,8 @@ import { context } from "esbuild";
 import { join, resolve } from "pathe";
 import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
-import { scaffoldDay, readConfig } from "../generators";
-import { log } from "../utils";
+import { scaffoldDay, readConfig } from "src/core/generators";
+import { log } from "src/core/utils";
 
 export default defineCommand({
   meta: {

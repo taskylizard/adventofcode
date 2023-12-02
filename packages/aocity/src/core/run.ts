@@ -1,9 +1,10 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { performance } from "node:perf_hooks";
 import { dirname, join } from "pathe";
 
-import type { Solutions, SolutionContext, Solution } from "src/types";
-import { log } from "src/utils";
+import type { Solutions, SolutionContext, Solution } from "src/core/types";
+import { log } from "src/core/utils";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -44,6 +45,8 @@ export function run(solutions: Solutions): void {
 }
 
 function runSolution(solution: Solution, context: SolutionContext, part: 1 | 2): void {
+  const startTime = performance.now();
   const result = solution(context);
-  log.info(`Part ${part} Result:`, result);
+  const time = performance.now() - startTime;
+  log.info(`Part ${part} (${time.toFixed()}ms):`, result);
 }
