@@ -8,7 +8,7 @@
   ],
   "types": "./dist/index.d.ts",
   "bin": {
-    "aoc": "./dist/index.js"
+    "aoc": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsup",

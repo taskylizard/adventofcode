@@ -27,7 +27,7 @@ async function saveConfig(year: string, config: Config): Promise<void> {
   await fsp.writeFile(join(year, ".aocity.json"), data);
 }
 
-export async function generateConfig(year: string): Promise<string> {
+export function generateConfig(year: string): string {
   return JSON.stringify(
     {
       year: Number(year),
@@ -47,7 +47,15 @@ export async function generateConfig(year: string): Promise<string> {
   );
 }
 
-export async function scaffoldDay(year: string, day: string, template: string): Promise<void> {
+export function generateBoilerplate(): string {
+  return `
+import { run } from "aocity";
+
+run({});
+`;
+}
+
+export async function scaffoldDay(year: string, day: string, template?: string): Promise<void> {
   // exit early if not present
   if (!process.env.AOC_SESSION) {
     log.error("AOC_SESSION enviornment variable is not set in .env file.");
@@ -56,7 +64,9 @@ export async function scaffoldDay(year: string, day: string, template: string): 
 
   const dir = join(year, day); // 2023/2
   await fsp.mkdir(dir, { recursive: true });
-  await setRunner(year, day, template, dir);
+
+  if (template) await setRunner(year, day, template, dir);
+  else await fsp.writeFile(join(dir, "index.ts"), generateBoilerplate());
 
   log.info("Downloading input...");
   const input = await fetchPuzzle(year, day);
@@ -70,7 +80,7 @@ export async function scaffoldDay(year: string, day: string, template: string): 
 async function setRunner(year: string, day: string, template: string, dir: string): Promise<void> {
   const file = join(template, ".aocity.json");
 
-  // 1. Copy the template to our day early for typescript template
+  // 1. Copy the template to our day
   await fsp.cp(template, dir, { recursive: true });
 
   // 2. Exit early if template does not have an config file

@@ -14,3 +14,46 @@ export interface Config {
     };
   };
 }
+
+export interface SolutionContext {
+  /**
+   * Your puzzle's raw input.
+   * @returns string
+   */
+  input: string;
+  /**
+   * Reads your input file into "lines" or "groups".
+   * @returns string
+   */
+  readInput: (into: "lines" | "groups") => string[];
+  /**
+   * Adds two numbers.
+   * @returns number
+   */
+  sum: (a: number, b: number) => number;
+  /**
+   * Multiplies two numbers.
+   * @returns number
+   */
+  product: (a: number, b: number) => number;
+  /**
+   * compareFn to sort two numbers by ascending order.
+   * @example [8,7,6,5,4].sort(asc) => [4,5,6,7,8]
+   * @returns number
+   */
+  asc: (a: number, b: number) => number;
+  /**
+   * compareFn to sort two numbers by descending order.
+   * @example [4,5,6,78].sort(asc) => [8,7,6,5,4]
+   * @returns number
+   */
+  desc: (a: number, b: number) => number;
+  by: <T, K extends keyof T>(key: K, compareFn: (a: T[K], b: T[K]) => number) => void;
+}
+
+export type Solution = (context: SolutionContext) => string | number | bigint | void;
+
+export interface Solutions {
+  part1?: Solution;
+  part2?: Solution;
+}

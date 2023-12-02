@@ -27,7 +27,7 @@ export default defineCommand({
 
     await fsp.mkdir(args.year);
     await fsp.writeFile(join(args.year, "package.json"), generatePackageJSON(args.year));
-    await fsp.writeFile(join(args.year, ".aocity.json"), await generateConfig(args.year));
+    await fsp.writeFile(join(args.year, ".aocity.json"), generateConfig(args.year));
     // TODO: nicer readme and all that
     log.success(`Sucessfully scaffolded a ${args.year} workspace.`);
   },

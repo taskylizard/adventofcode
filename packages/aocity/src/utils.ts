@@ -25,9 +25,9 @@ export async function fetchInstructions(year: string, day: string): Promise<stri
   return resolveInstructions(page);
 }
 
-function resolveInstructions(page: any) {
+function resolveInstructions(page: any): string {
   const $ = cheerio.load(page);
   const nodes = $(".day-desc").children().toArray();
-  const markdown = nodes.map((n) => cheerio.html(n)).join("");
+  const markdown = nodes.map((n) => cheerio.html(n)).join("\n");
   return markdown;
 }

@@ -1,18 +1,14 @@
 import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import { Worker } from "node:worker_threads";
 import { execa } from "execa";
 import { watch } from "chokidar";
 import type { BuildOptions } from "esbuild";
 import { context } from "esbuild";
-import { dirname, join, resolve } from "pathe";
+import { join, resolve } from "pathe";
 import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
 import { scaffoldDay, readConfig } from "../generators";
 import { log } from "../utils";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 export default defineCommand({
   meta: {
@@ -45,11 +41,7 @@ export default defineCommand({
     const dir = join(year, day);
 
     if (!existsSync(dir)) {
-      const whichTemplate = template
-        ? resolve(join(process.cwd(), "templates", template))
-        : resolve(__dirname, "typescript");
-
-      await scaffoldDay(year, day, whichTemplate);
+      await scaffoldDay(year, day, template);
       log.success(`Successfully scaffolded project for day ${day}, year ${year}.`);
     }
 
