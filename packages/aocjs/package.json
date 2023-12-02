@@ -1,0 +1,14 @@
+{
+  "name": "aocjs",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": "./index.js",
+  "scripts": {},
+  "keywords": [
+    "aoc",
+    "adventofcode"
+  ],
+  "author": "taskylizard",
+  "license": "MIT",
+  "dependencies": {}
+}
