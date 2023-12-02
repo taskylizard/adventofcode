@@ -1,12 +1,4 @@
-import { readFileSync } from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const file = readFileSync(join(__dirname, "..", "input.txt"), "utf8");
-let input = file.split("\n").filter(Boolean);
+import { run } from "aocity";
 
 function replace(input: string): string {
   const characterNumbers: Record<string, string> = {
@@ -33,17 +25,18 @@ function findNumbers(input: string): number {
   return Number.parseInt(firstNumber + "" + lastNumber);
 }
 
-function part1() {
-  let sum = 0;
-  input.forEach((i) => (sum += findNumbers(i)!));
-  return sum;
-}
+run({
+  part1({ readInput }) {
+    const input = readInput("lines");
+    let sum = 0;
+    input.forEach((i) => (sum += findNumbers(i)!));
+    return sum;
+  },
+  part2({ readInput }) {
+    const input = readInput("lines");
 
-function part2() {
-  let sum = 0;
-  input.forEach((i) => (sum += findNumbers(replace(i))!));
-  return sum;
-}
-
-console.log(`Part 1: ${part1()}`);
-console.log(`Part 2: ${part2()}`);
+    let sum = 0;
+    input.forEach((i) => (sum += findNumbers(replace(i))!));
+    return sum;
+  },
+});
