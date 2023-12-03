@@ -1,8 +1,7 @@
 # 🌆🎄 aocity
 
 [![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href] [![bundle][bundle-src]][bundle-href]
-[![jsdocs][jsdocs-src]][jsdocs-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href] [![jsdocs][jsdocs-src]][jsdocs-href]
 
 aocity is a elegant CLI for [Advent of Code](https://adventofcode.com).
 
@@ -119,13 +118,16 @@ Copyright (c) 2023 taskylizard. MIT Licensed.
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/aocity?style=flat&colorA=18181B&colorB=F0DB4F
+    <a href="https://github.com/pwnwriter/hysp/releases">
+        <img src="https://img.shields.io/github/v/release/pwnwriter/hysp?">
+    </a>
+
+[npm-version-src]:
+  https://img.shields.io/npm/v/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
 [npm-version-href]: https://npmjs.com/package/aocity
-[npm-downloads-src]: https://img.shields.io/npm/dm/aocity?style=flat&colorA=18181B&colorB=F0DB4F
+[npm-downloads-src]: https://img.shields.io/npm/dm/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
+
 [npm-downloads-href]: https://npmjs.com/package/aocity
-[bundle-src]:
-  https://img.shields.io/bundlephobia/minzip/aocity?style=flat&colorA=18181B&colorB=F0DB4F
-[bundle-href]: https://bundlephobia.com/result?p=aocity
 [jsdocs-src]:
-  https://img.shields.io/badge/jsDocs.io-reference-18181B?style=flat&colorA=18181B&colorB=F0DB4F
+  https://img.shields.io/badge/jsDocs.io-reference-18181B?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
 [jsdocs-href]: https://www.jsdocs.io/package/aocity
