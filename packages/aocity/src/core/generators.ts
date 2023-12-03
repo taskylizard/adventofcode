@@ -48,8 +48,7 @@ export function generateConfig(year: string): string {
 }
 
 export function generateBoilerplate(): string {
-  return `
-import { run } from "aocity";
+  return `import { run } from "aocity";
 
 run({});
 `;
@@ -58,7 +57,9 @@ run({});
 export async function scaffoldDay(year: string, day: string, template?: string): Promise<void> {
   // exit early if not present
   if (!process.env.AOC_SESSION) {
-    log.error("AOC_SESSION enviornment variable is not set in .env file.");
+    log.error(
+      "The AOC_SESSION enviornment variable is not set. You can set it in .env file in root or in your shellrc.",
+    );
     process.exit(1);
   }
 
@@ -78,10 +79,11 @@ export async function scaffoldDay(year: string, day: string, template?: string):
 }
 
 async function setRunner(year: string, day: string, template: string, dir: string): Promise<void> {
-  const file = join(template, ".aocity.json");
+  const tmpl = join("templates", template);
+  const file = join(tmpl, ".aocity.json");
 
   // 1. Copy the template to our day
-  await fsp.cp(template, dir, { recursive: true });
+  await fsp.cp(tmpl, dir, { recursive: true });
 
   // 2. Exit early if template does not have an config file
   if (existsSync(file)) {
