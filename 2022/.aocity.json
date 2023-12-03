@@ -1,0 +1,330 @@
+{
+  "year": 2022,
+  "days": {
+    "1": {
+      "runner": "crystal run day.cr",
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "2": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "3": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "4": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "5": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "6": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "7": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "8": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "9": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "10": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "11": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "12": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "13": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "14": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "15": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "16": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "17": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "18": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "19": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "20": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "21": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "22": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "23": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "24": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    },
+    "25": {
+      "runner": null,
+      "part1": {
+        "solved": false,
+        "result": null,
+        "time": null
+      },
+      "part2": {
+        "solved": false,
+        "result": null,
+        "time": null
+      }
+    }
+  }
+}
