@@ -118,9 +118,6 @@ Copyright (c) 2023 taskylizard. MIT Licensed.
 
 <!-- Badges -->
 
-    <a href="https://github.com/pwnwriter/hysp/releases">
-        <img src="https://img.shields.io/github/v/release/pwnwriter/hysp?">
-    </a>
 
 [npm-version-src]:
   https://img.shields.io/npm/v/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
