@@ -41,7 +41,7 @@
       }
     },
     "4": {
-      "runner": null,
+      "runner": "crystal run day.cr",
       "part1": {
         "solved": false,
         "result": null,
