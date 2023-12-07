@@ -22,7 +22,7 @@
   "author": "taskylizard",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
+    "aocjs": "workspace:^",
     "chokidar": "^3.5.3",
     "citty": "^0.1.5",
     "consola": "^3.2.3",

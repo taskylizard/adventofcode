@@ -1,33 +1,106 @@
-/* eslint-disable no-return-await */
+import fsp from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { join } from "pathe";
 import consola from "consola";
-import cheerio from "cheerio";
+import { Client } from "aocjs";
+import type { Config } from "./types";
 
 export const log = consola.create({ defaults: { tag: "🎄" } });
 
-async function fetcher(path: string): Promise<string> {
-  const res = await fetch(`https://adventofcode.com/${path}`, {
-    headers: {
-      Cookie: `session=${process.env.AOC_SESSION}`,
-      "User-Agent": "taskylizard (https://github.com/taskylizard/adventofcode)",
-      Accept: "text/plain",
+export function generatePackageJSON(year: string): string {
+  return JSON.stringify(
+    {
+      name: year,
+      version: "1.0.0",
+      type: "module",
+      keywords: ["aoc", "adventofcode"],
+      dependencies: {},
     },
-  });
-
-  return await res.text();
+    null,
+    2,
+  );
 }
 
-export async function fetchPuzzle(year: string, day: string): Promise<string> {
-  return await fetcher(`${year}/day/${day}/input`);
+export async function readConfig(year: string): Promise<Config> {
+  return JSON.parse(await fsp.readFile(join(year, ".aocity.json"), { encoding: "utf-8" }));
 }
 
-export async function fetchInstructions(year: string, day: string): Promise<string> {
-  const page = await fetcher(`${year}/day/${day}`);
-  return resolveInstructions(page);
+async function saveConfig(year: string, config: Config): Promise<void> {
+  const data = JSON.stringify(config, null, 2);
+  await fsp.writeFile(join(year, ".aocity.json"), data);
 }
 
-function resolveInstructions(page: any): string {
-  const $ = cheerio.load(page);
-  const nodes = $(".day-desc").children().toArray();
-  const markdown = nodes.map((n) => cheerio.html(n)).join("\n");
-  return markdown;
+export function generateConfig(year: string): string {
+  return JSON.stringify(
+    {
+      year: Number(year),
+      days: Object.fromEntries(
+        Array.from({ length: 25 }, (_, index) => [
+          index + 1,
+          {
+            runner: null,
+            part1: { solved: false, result: null, time: null },
+            part2: { solved: false, result: null, time: null },
+          },
+        ]),
+      ),
+    } satisfies Config,
+    null,
+    2,
+  );
+}
+
+export function generateBoilerplate(): string {
+  return `import { run } from "aocity";
+
+run({});
+`;
+}
+
+export async function scaffoldDay(year: string, day: string, template?: string): Promise<void> {
+  // exit early if not present
+  if (!process.env.AOC_SESSION) {
+    log.error(
+      "The AOC_SESSION enviornment variable is not set. You can set it in .env file in root or in your shellrc.",
+    );
+    process.exit(1);
+  }
+
+  const client = new Client({ session: process.env.AOC_SESSION! });
+
+  const dir = join(year, day); // 2023/2
+  await fsp.mkdir(dir, { recursive: true });
+
+  if (template) await setRunner(year, day, template, dir);
+  else await fsp.writeFile(join(dir, "index.ts"), generateBoilerplate());
+
+  log.info("Downloading input...");
+  const input = await client.getInput(Number(year), Number(day));
+  await fsp.writeFile(join(dir, "input.txt"), input);
+  log.success("Downloaded input!");
+
+  // const readme = await fetchInstructions(year, day);
+  // await fsp.writeFile(join(dir, "README.md"), readme);
+}
+
+async function setRunner(year: string, day: string, template: string, dir: string): Promise<void> {
+  const tmpl = join("templates", template);
+  const file = join(tmpl, ".aocity.json");
+
+  // 1. Copy the template to our day
+  await fsp.cp(tmpl, dir, { recursive: true });
+
+  // 2. Exit early if template does not have an config file
+  if (existsSync(file)) {
+    // 3. Read our template config and the root config
+    const conf = JSON.parse(await fsp.readFile(file, { encoding: "utf-8" }));
+    const config = await readConfig(year);
+
+    // 4. Write to our year root config
+    if (conf.runner !== undefined) config.days[Number(day)].runner = conf.runner;
+    await saveConfig(year, config);
+
+    // 5. Remove the temporary file
+    await fsp.rm(join(year, day, ".aocity.json"));
+  }
 }

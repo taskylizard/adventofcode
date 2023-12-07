@@ -2,6 +2,7 @@
   "name": "adventofcode",
   "scripts": {
     "build:cli": "pnpm --filter aocity build",
+    "build": "pnpm --parallel -r build",
     "format": "prettier --cache -w ."
   },
   "author": "taskylizard",
