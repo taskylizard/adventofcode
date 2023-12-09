@@ -64,7 +64,7 @@ export class Client {
     return data;
   }
 
-  public async submit(day: number, year: number, part: 1 | 2, solution: string) {
-    const request = await this.fetcher(`${year}/day/${day}/answer`);
-  }
+  // public async submit(day: number, year: number, part: 1 | 2, solution: string) {
+  //   const request = await this.fetcher(`${year}/day/${day}/answer`);
+  // }
 }

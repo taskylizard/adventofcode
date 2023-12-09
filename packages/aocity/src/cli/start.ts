@@ -123,19 +123,22 @@ export default defineCommand({
           stderr: true,
         });
 
-        worker.stderr.on("error", (error) => {
+        worker.on("error", (error) => {
           // Handle errors in the worker
           const newErr = new Error(`[dev:worker:error] ${error.message}`);
           newErr.stack = error.stack;
           log.error(newErr);
         });
 
-        worker.once("exit", (code) => {
-          if (code) {
-            log.error(new Error(`[dev:worker:exit] exited with code: ${code}`));
-          } else {
-            log.debug("[dev:worker:exit] exited");
-          }
+        worker.stderr.on("error", (error) => {
+          // Handle errors in stderr
+          const newErr = new Error(`[dev:stderr:error] ${error.message}`);
+          newErr.stack = error.stack;
+          newErr.cause = error.cause
+          log.error(newErr);
+        });
+
+        worker.once("exit", () => {
           worker = null;
         });
 
