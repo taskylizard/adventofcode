@@ -1,0 +1,3 @@
+{
+  "runner": "go run main.go"
+}

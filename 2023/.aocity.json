@@ -106,7 +106,7 @@
       }
     },
     "9": {
-      "runner": null,
+      "runner": "go run main.go",
       "part1": {
         "solved": false,
         "result": null,
