@@ -15,19 +15,17 @@ export default defineCommand({
     description: "Start a new challenge.",
   },
   args: {
+    day: {
+      type: "positional",
+      description: "The Advent of Code calendar day.",
+      required: true,
+    },
     year: {
       type: "string",
       description: "The Advent of Code calendar year.",
       default: new Date().getFullYear().toString(),
       alias: "y",
       valueHint: "2023",
-    },
-    day: {
-      type: "string",
-      description: "The Advent of Code calendar day.",
-      alias: "d",
-      valueHint: "1",
-      required: true,
     },
     template: {
       type: "string",

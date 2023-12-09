@@ -38,7 +38,7 @@ steps.
 6. Save this in a `.env` file with the name `AOC_SESSION` in the root. You could also save this into
    your shell's rc, as this session lasts a very long time.
 
-Now, to start a day, run: `pnpm aoc start -d <day>`, where `-d/--day` is the day number.
+Now, to start a day, run: `pnpm aoc start <day>`.
 
 This will scaffold your day folder, downloads your input and instructions and saves them locally,
 generates a minimal TypeScript file and starts the development server.
@@ -118,12 +118,11 @@ Copyright (c) 2023 taskylizard. MIT Licensed.
 
 <!-- Badges -->
 
-
 [npm-version-src]:
   https://img.shields.io/npm/v/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
 [npm-version-href]: https://npmjs.com/package/aocity
-[npm-downloads-src]: https://img.shields.io/npm/dm/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
-
+[npm-downloads-src]:
+  https://img.shields.io/npm/dm/aocity?style=flat&labelColor=f38ba8&color=585b70&logoColor=white
 [npm-downloads-href]: https://npmjs.com/package/aocity
 [jsdocs-src]:
   https://img.shields.io/badge/jsDocs.io-reference-18181B?style=flat&labelColor=f38ba8&color=585b70&logoColor=white

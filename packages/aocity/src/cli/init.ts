@@ -11,10 +11,9 @@ export default defineCommand({
   },
   args: {
     year: {
-      type: "string",
+      type: "positional",
       description: "The Advent of Code calendar year.",
       default: new Date().getFullYear().toString(),
-      alias: "y",
       valueHint: "2023",
     },
   },
