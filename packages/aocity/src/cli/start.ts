@@ -7,6 +7,7 @@ import { context } from "esbuild";
 import { join, resolve } from "pathe";
 import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
+import { colors as c } from "consola/utils";
 import { log, scaffoldDay, readConfig } from "src/core/utils";
 
 const ignored = existsSync(join(".gitignore"))
@@ -71,12 +72,12 @@ export default defineCommand({
           // 3rd party packages
           "**/{node_modules,bower_components,vendor,target}/**",
           // .gitignore
-          ...ignored,
+          ...ignored!,
         ],
       })
         .on("ready", async () => {
           log.start(`Started server, listening for changes...`);
-          log.ready("🦌 Press: r to reload • q to quit");
+          log.ready(`🦌 Press: ${c.green(c.bold("r"))} to reload • ${c.red(c.bold("q"))} to quit`);
         })
         .on("all", async (change, path) => {
           log.info(`[dev:watcher:${change}]: ${path}`);
@@ -178,13 +179,13 @@ export default defineCommand({
           // 3rd party packages
           "**/{node_modules,bower_components,vendor}/**",
           // .gitignore
-          ...ignored,
+          ...ignored!,
         ],
       })
         .on("ready", async () => {
           await reload();
           log.start(`Started server, listening for changes...`);
-          log.ready("🦌 Press: r to reload • q to quit");
+          log.ready(`🦌 Press: ${c.green(c.bold("r"))} to reload • ${c.red(c.bold("q"))} to quit`);
         })
         .on("all", async (change, path) => {
           log.info(`[dev:watcher:${change}]: ${path}`);

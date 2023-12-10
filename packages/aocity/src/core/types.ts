@@ -53,7 +53,21 @@ export interface SolutionContext {
 
 export type Solution = (context: SolutionContext) => string | number | bigint | void;
 
+export interface Test {
+  /** Test case result.*/
+  name: string;
+  /** Input string, could be the example. */
+  input: string;
+  /** Expected output. */
+  expected: string;
+  solution: Solution;
+}
+
 export interface Solutions {
+  /** Part 1 solution.*/
   part1?: Solution;
+  /** Part 2 solution.*/
   part2?: Solution;
+  /** Test cases for your solutions.*/
+  tests?: Test[];
 }

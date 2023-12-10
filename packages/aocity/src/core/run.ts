@@ -2,15 +2,32 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { performance } from "node:perf_hooks";
 import { dirname, join } from "pathe";
+import { colors as c } from "consola/utils";
 
-import type { Solutions, SolutionContext, Solution } from "src/core/types";
-import { log } from "src/core/utils";
+import type { Solutions, SolutionContext, Solution, Test } from "./types";
+import { log } from "./utils";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+function testFail(name: string, num: number, expected: string, recieved: string, message: string) {
+  return console.log(
+    `${c.red(c.bold(c.inverse(` FAIL `)))} Test ${c.cyan(name)} ${c.gray(`#${num}`)} >`,
+    `${c.dim(c.bold(message))}\n`,
+    c.green(`+ Expected: ${c.bold(expected)}\n`),
+    c.red(`- Recieved: ${c.bold(recieved)}\n`),
+  );
+}
+
+function testPass(name: string, num: number, message: string) {
+  return console.log(
+    `${c.green(c.bold(c.inverse(` PASS `)))} Test ${c.cyan(name)} ${c.gray(`#${num}`)} >`,
+    c.dim(c.bold(message)),
+  );
+}
+
 /**
- * Runs your solutions with utils and pretty formatting.
+ * Runs your solutions with utils, tests and formatting.
  */
 export function run(solutions: Solutions): void {
   const context: SolutionContext = {
@@ -42,11 +59,28 @@ export function run(solutions: Solutions): void {
 
   if (solutions.part1) runSolution(solutions.part1, context, 1);
   if (solutions.part2) runSolution(solutions.part2, context, 2);
+  if (solutions.tests) runTests(solutions.tests, context);
 }
 
 function runSolution(solution: Solution, context: SolutionContext, part: 1 | 2): void {
   const startTime = performance.now();
   const result = solution(context);
   const time = performance.now() - startTime;
-  log.info(`Part ${part} (${time.toFixed()}ms):`, result);
+  log.info(
+    `Part ${c.cyan(part)} ${c.gray("(")}${c.magenta(`${time.toFixed()}ms`)}${c.gray(
+      ")",
+    )}: ${result}`,
+  );
+}
+
+function runTests(tests: Test[], context: Omit<SolutionContext, "input">) {
+  for (const [i, { name, input, expected, solution }] of tests.entries()) {
+    const result = solution({ ...context, input });
+
+    if (result === expected) {
+      testPass(name, i, `Result: ${result}`);
+    } else {
+      testFail(name, i, expected, String(result), "Fail");
+    }
+  }
 }
