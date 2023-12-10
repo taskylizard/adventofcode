@@ -76,11 +76,12 @@ export default defineCommand({
         ],
       })
         .on("ready", async () => {
+          await reload();
           log.start(`Started server, listening for changes...`);
           log.ready(`🦌 Press: ${c.green(c.bold("r"))} to reload • ${c.red(c.bold("q"))} to quit`);
         })
-        .on("all", async (change, path) => {
-          log.info(`[dev:watcher:${change}]: ${path}`);
+        .on("change", async (path) => {
+          log.info(`[dev:watcher:change]: ${path}`);
           await reload();
         })
         .on("error", (error) => log.error("[dev:watcher:error]", error));
