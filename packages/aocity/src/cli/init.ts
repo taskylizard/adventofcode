@@ -9,24 +9,31 @@ export default defineCommand({
     name: "init",
     description: "Scaffold a Advent of Code year.",
   },
-  args: {
-    year: {
-      type: "positional",
-      description: "The Advent of Code calendar year.",
-      default: new Date().getFullYear().toString(),
-      valueHint: "2023",
-    },
-  },
-  async run({ args }) {
-    if (existsSync(args.year)) {
-      log.error(`${args.year} already exists, aborting.`);
+  async run() {
+    const firstYear = 2015;
+    const currentYear = new Date().getFullYear();
+
+    const years = new Array(currentYear - firstYear + 1)
+      .fill(firstYear)
+      .map((val, i) => val + i)
+      .reverse();
+
+    let year: any = await log.prompt("What calendar year do you want to do?", {
+      type: "select",
+      options: years.map((year) => ({ label: year, value: year })),
+    });
+
+    year = String(year!);
+
+    if (existsSync(year)) {
+      log.error(`${year} already exists, aborting.`);
       process.exit(1);
     }
 
-    await fsp.mkdir(args.year);
-    await fsp.writeFile(join(args.year, "package.json"), generatePackageJSON(args.year));
-    await fsp.writeFile(join(args.year, ".aocity.json"), generateConfig(args.year));
+    await fsp.mkdir(year);
+    await fsp.writeFile(join(year, "package.json"), generatePackageJSON(year));
+    await fsp.writeFile(join(year, ".aocity.json"), generateConfig(year));
     // TODO: nicer readme and all that
-    log.success(`Sucessfully scaffolded a ${args.year} workspace.`);
+    log.success(`Sucessfully scaffolded a ${year} workspace.`);
   },
 });
