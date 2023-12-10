@@ -19,3 +19,4 @@
 /.shards/
 *.dwarf
 .env
+target
