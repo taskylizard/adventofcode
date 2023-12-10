@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { Worker } from "node:worker_threads";
 import { execa } from "execa";
 import { watch } from "chokidar";
@@ -8,6 +8,8 @@ import { join, resolve } from "pathe";
 import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
 import { log, scaffoldDay, readConfig } from "src/core/utils";
+
+const ignored = readFileSync(join(".gitignore"), { encoding: "utf8" }).split("\n");
 
 export default defineCommand({
   meta: {
@@ -66,6 +68,8 @@ export default defineCommand({
           "**/dist/**",
           // 3rd party packages
           "**/{node_modules,bower_components,vendor}/**",
+          // .gitignore
+          ...ignored,
         ],
       })
         .on("ready", async () => {
@@ -132,7 +136,7 @@ export default defineCommand({
           // Handle errors in stderr
           const newErr = new Error(`[dev:stderr:error] ${error.message}`);
           newErr.stack = error.stack;
-          newErr.cause = error.cause
+          newErr.cause = error.cause;
           log.error(newErr);
         });
 
@@ -171,6 +175,8 @@ export default defineCommand({
           "**/dist/**",
           // 3rd party packages
           "**/{node_modules,bower_components,vendor}/**",
+          // .gitignore
+          ...ignored,
         ],
       })
         .on("ready", async () => {
