@@ -9,7 +9,9 @@ import { defineCommand } from "citty";
 import { debounce } from "perfect-debounce";
 import { log, scaffoldDay, readConfig } from "src/core/utils";
 
-const ignored = readFileSync(join(".gitignore"), { encoding: "utf8" }).split("\n");
+const ignored = existsSync(join(".gitignore"))
+  ? readFileSync(join(".gitignore"), { encoding: "utf8" }).split("\n").filter(Boolean)
+  : undefined;
 
 export default defineCommand({
   meta: {
@@ -67,7 +69,7 @@ export default defineCommand({
           // Built files
           "**/dist/**",
           // 3rd party packages
-          "**/{node_modules,bower_components,vendor}/**",
+          "**/{node_modules,bower_components,vendor,target}/**",
           // .gitignore
           ...ignored,
         ],

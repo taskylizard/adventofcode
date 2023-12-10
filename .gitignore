@@ -19,4 +19,4 @@
 /.shards/
 *.dwarf
 .env
-target
+**/target/**
