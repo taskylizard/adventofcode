@@ -3,7 +3,8 @@
   "scripts": {
     "build:cli": "pnpm --filter aocity build",
     "build": "pnpm --parallel -r build",
-    "format": "prettier --cache -w ."
+    "format": "prettier --cache -w .",
+    "test": "vitest"
   },
   "author": "taskylizard",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "eslint": "^8.54.0",
     "prettier": "^3.1.0",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.4"
   }
 }
