@@ -2,6 +2,7 @@ import fsp from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "pathe";
 import consola from "consola";
+import { colors as c } from "consola/utils";
 import { Client } from "aocjs";
 import type { Config } from "./types";
 
@@ -61,7 +62,9 @@ export async function scaffoldDay(year: string, day: string, template?: string):
   // exit early if not present
   if (!process.env.AOC_SESSION) {
     log.error(
-      "The AOC_SESSION enviornment variable is not set. You can set it in .env file in root or in your shellrc.",
+      `The ${c.magenta(
+        "AOC_SESSION",
+      )} enviornment variable is not set. You can set it in .env file in root or in your shellrc.`,
     );
     process.exit(1);
   }
