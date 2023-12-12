@@ -1,8 +1,9 @@
 import { existsSync } from "node:fs";
 import { join } from "pathe";
 import { defineCommand } from "citty";
-import { log, scaffoldDay, readConfig } from "src/core/utils";
+import { log, scaffoldDay } from "src/core/utils";
 import { createBuildContext } from "src/core/build";
+import { config as conf } from "src/core/io";
 
 export default defineCommand({
   meta: {
@@ -37,7 +38,7 @@ export default defineCommand({
       log.success(`Successfully scaffolded project for day ${day}, year ${year}.`);
     }
 
-    const config = await readConfig(year);
+    const config = await conf.load(year);
     return await createBuildContext({ dir, config, day });
   },
 });

@@ -5,8 +5,12 @@ import consola from "consola";
 import { colors as c } from "consola/utils";
 import { Client } from "aocjs";
 import type { Config } from "./types";
+import { config } from "./io";
 
 export const log = consola.create({ defaults: { tag: "🎄" } });
+export const dedent = (str: string) =>
+  str.replace(RegExp("^" + (str.match(/^(\t| )+/) || "")[0], "gm"), "");
+export const toFixed = (value: number, precision: number = 3) => Number(value.toFixed(precision));
 
 export function generatePackageJSON(year: string): string {
   return JSON.stringify(
@@ -20,15 +24,6 @@ export function generatePackageJSON(year: string): string {
     null,
     2,
   );
-}
-
-export async function readConfig(year: string): Promise<Config> {
-  return JSON.parse(await fsp.readFile(join(year, ".aocity.json"), { encoding: "utf-8" }));
-}
-
-async function saveConfig(year: string, config: Config): Promise<void> {
-  const data = JSON.stringify(config, null, 2);
-  await fsp.writeFile(join(year, ".aocity.json"), data);
 }
 
 export function generateConfig(year: string): string {
@@ -96,12 +91,12 @@ async function setRunner(year: string, day: string, template: string, dir: strin
   // 2. Exit early if template does not have an config file
   if (existsSync(file)) {
     // 3. Read our template config and the root config
-    const conf = JSON.parse(await fsp.readFile(file, { encoding: "utf-8" }));
-    const config = await readConfig(year);
+    const tmpconf = JSON.parse(await fsp.readFile(file, { encoding: "utf-8" }));
+    const conf = await config.load(year);
 
     // 4. Write to our year root config
-    if (conf.runner !== undefined) config.days[Number(day)].runner = conf.runner;
-    await saveConfig(year, config);
+    if (tmpconf.runner !== undefined) conf.days[Number(day)].runner = tmpconf.runner;
+    await config.save(year, conf);
 
     // 5. Remove the temporary file
     await fsp.rm(join(year, day, ".aocity.json"));

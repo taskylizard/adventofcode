@@ -3,6 +3,8 @@ import fsp from "node:fs/promises";
 import { defineCommand } from "citty";
 import { join } from "pathe";
 import { log, generatePackageJSON, generateConfig } from "src/core/utils";
+import { generateReadme } from "src/core/generators/year";
+import { config } from "src/core/io";
 
 export default defineCommand({
   meta: {
@@ -33,7 +35,7 @@ export default defineCommand({
     await fsp.mkdir(year);
     await fsp.writeFile(join(year, "package.json"), generatePackageJSON(year));
     await fsp.writeFile(join(year, ".aocity.json"), generateConfig(year));
-    // TODO: nicer readme and all that
+    await fsp.writeFile(join(year, "README.md"), generateReadme(await config.load(year)));
     log.success(`Sucessfully scaffolded a ${year} workspace.`);
   },
 });
