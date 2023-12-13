@@ -158,7 +158,7 @@
       }
     },
     "13": {
-      "runner": null,
+      "runner": "python3 day.py",
       "part1": {
         "solved": false,
         "result": null,
