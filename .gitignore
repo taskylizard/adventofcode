@@ -21,3 +21,4 @@
 .env
 **/target/**
 **/build/**
+**/input.txt
