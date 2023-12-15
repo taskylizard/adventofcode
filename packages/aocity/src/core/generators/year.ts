@@ -13,8 +13,9 @@ export function generateDayBadges(config: Config) {
             ? "yellow"
             : "gray";
 
-      const badge = `![Day](https://badgen.net/badge/${day}/%E2%98%8${part1.solved ? 5 : 6
-        }%E2%98%8${part2.solved || (part1.solved && day === "25") ? 5 : 6}/${color})`;
+      const badge = `![Day](https://badgen.net/badge/${day}/%E2%98%8${
+        part1.solved ? 5 : 6
+      }%E2%98%8${part2.solved || (part1.solved && day === "25") ? 5 : 6}/${color})`;
 
       return color !== "gray" ? `[${badge}](src/day${day})` : badge;
     })
