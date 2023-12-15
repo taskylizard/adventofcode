@@ -184,7 +184,7 @@
       }
     },
     "15": {
-      "runner": null,
+      "runner": "gleam run",
       "part1": {
         "solved": false,
         "result": null,

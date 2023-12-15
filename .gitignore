@@ -22,3 +22,6 @@
 **/target/**
 **/build/**
 **/input.txt
+**/*.beam
+**/*.ez
+**/erl_crash.dump
