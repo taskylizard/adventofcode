@@ -59,7 +59,7 @@ export interface Test {
   /** Input string, could be the example. */
   input: string;
   /** Expected output. */
-  expected: string;
+  expected: string | number;
   solution: Solution;
 }
 
