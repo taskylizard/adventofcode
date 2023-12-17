@@ -17,5 +17,5 @@ p2 =
   |> Enum.slice(0..2)
   |> Enum.sum()
 
-IO.puts("Part 1: " <> Integer.to_string(p1))
-IO.puts("Part 2: " <> Integer.to_string(p2))
+IO.puts("Part 1: #{p1}")
+IO.puts("Part 2: #{p2}")
