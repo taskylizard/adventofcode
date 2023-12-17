@@ -10,10 +10,9 @@ import { log } from "./utils";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function testFail(name: string, num: number, expected: string, recieved: string, message: string) {
+function testFail(name: string, num: number, expected: string, recieved: string) {
   return console.log(
-    `${c.red(c.bold(c.inverse(` FAIL `)))} Test ${c.cyan(name)} ${c.gray(`#${num}`)} >`,
-    `${c.dim(c.bold(message))}\n`,
+    `${c.red(c.bold(c.inverse(` FAIL `)))} ${c.cyan(name)} ${c.gray(`#${num}`)}\n`,
     c.green(`+ Expected: ${c.bold(expected)}\n`),
     c.red(`- Recieved: ${c.bold(recieved)}\n`),
   );
@@ -21,7 +20,7 @@ function testFail(name: string, num: number, expected: string, recieved: string,
 
 function testPass(name: string, num: number, message: string) {
   return console.log(
-    `${c.green(c.bold(c.inverse(` PASS `)))} Test ${c.cyan(name)} ${c.gray(`#${num}`)} >`,
+    `${c.green(c.bold(c.inverse(` PASS `)))} ${c.cyan(name)} ${c.gray(`#${num}`)} >`,
     c.dim(c.bold(message)),
   );
 }
@@ -80,7 +79,7 @@ function runTests(tests: Test[], context: Omit<SolutionContext, "input">) {
     if (result === expected) {
       testPass(name, i, `Result: ${result}`);
     } else {
-      testFail(name, i, expected, String(result), "Fail");
+      testFail(name, i, expected.toString(), String(result));
     }
   }
 }

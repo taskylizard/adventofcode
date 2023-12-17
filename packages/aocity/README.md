@@ -5,9 +5,10 @@
 
 aocity is a elegant CLI for [Advent of Code](https://adventofcode.com).
 
-- Scaffolds a minimal setup for AoC with the folder structure: `<root>/<year>/<day>`
+- Scaffolds a minimal setup for Advent of Cose with the folder structure: `<root>/<year>/<day>`
 - Downloads your input file and saves it locally
 - [Template support for other languages](#templates)
+- [Testing support](#testing)
 - Supports both JavaScript and TypeScript, powered by ESBuild
 - Provides an elegant `run()` function and utlities
 
@@ -78,6 +79,57 @@ This are `compareFn`s for `Array.sort()`.
 
 - `asc` sorts your list by ascending order.
 - `desc` sorts your list by decending order.
+
+## Testing
+
+The `run` function has an `tests` property which is an array of test objects. You can add as much as
+you want. It's pretty much the same as your logic for `part1` or `part2` but the `readInput` util is
+not exported because it reads from the real input, you'll have to use `input` which will use your
+provided input.
+
+This also includes a pretty logger similar to Vitest or Jest for pass and fail tests.
+
+Example:
+
+```ts
+const exampleInput = `.|...\\....
+|.-.\\.....
+.....|-...
+........|.
+..........
+.........\\
+..../.\\\\..
+.-.-/..|..
+.|....-|.\\
+..//.|....`;
+
+run({
+  part1({ input }) {
+    return part1(_(input));
+  },
+  part2({ input }) {
+    return part2(_(input));
+  },
+  tests: [
+    {
+      name: "Part 1 example",
+      input: exampleInput,
+      expected: 46,
+      solution({ input }) {
+        return part1(parseInput(input));
+      },
+    },
+    {
+      name: "Part 2 example",
+      input: exampleInput,
+      expected: 52,
+      solution({ input }) {
+        return part2(parseInput(input));
+      },
+    },
+  ],
+});
+```
 
 ## Templates
 

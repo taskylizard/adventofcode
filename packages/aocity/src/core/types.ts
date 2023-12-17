@@ -48,6 +48,10 @@ export interface SolutionContext {
    * @returns number
    */
   desc: (a: number, b: number) => number;
+  /**
+   * Compares a key by a provided compareFn.
+   * @returns void
+   */
   by: <T, K extends keyof T>(key: K, compareFn: (a: T[K], b: T[K]) => number) => void;
 }
 
