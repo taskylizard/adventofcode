@@ -210,7 +210,7 @@
       }
     },
     "17": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
         "solved": false,
         "result": null,
