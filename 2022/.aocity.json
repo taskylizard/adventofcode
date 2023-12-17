@@ -2,7 +2,7 @@
   "year": 2022,
   "days": {
     "1": {
-      "runner": "crystal run day.cr",
+      "runner": "elixir day.exs",
       "part1": {
         "solved": false,
         "result": null,
