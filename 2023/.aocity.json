@@ -223,7 +223,7 @@
       }
     },
     "18": {
-      "runner": null,
+      "runner": "elixir day.exs",
       "part1": {
         "solved": false,
         "result": null,
