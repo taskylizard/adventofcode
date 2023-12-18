@@ -55,10 +55,10 @@ export function run(solutions: Solutions): void {
       return (a: O, b: O) => compareFn(a[key], b[key]);
     },
   };
-
+  // Must run first as tests have smaller input to compute on.
+  if (solutions.tests) runTests(solutions.tests, context);
   if (solutions.part1) runSolution(solutions.part1, context, 1);
   if (solutions.part2) runSolution(solutions.part2, context, 2);
-  if (solutions.tests) runTests(solutions.tests, context);
 }
 
 function runSolution(solution: Solution, context: SolutionContext, part: 1 | 2): void {
