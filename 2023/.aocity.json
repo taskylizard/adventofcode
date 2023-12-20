@@ -236,7 +236,7 @@
       }
     },
     "19": {
-      "runner": null,
+      "runner": "crystal run day.cr",
       "part1": {
         "solved": false,
         "result": null,
@@ -249,7 +249,7 @@
       }
     },
     "20": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
         "solved": false,
         "result": null,
