@@ -17,12 +17,12 @@
     "2": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -30,12 +30,12 @@
     "3": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -43,12 +43,12 @@
     "4": {
       "runner": "crystal run day.cr",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -56,12 +56,12 @@
     "5": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -69,12 +69,12 @@
     "6": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -82,12 +82,12 @@
     "7": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -95,12 +95,12 @@
     "8": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -108,12 +108,12 @@
     "9": {
       "runner": "go run main.go",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -121,12 +121,12 @@
     "10": {
       "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -134,12 +134,12 @@
     "11": {
       "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -147,12 +147,12 @@
     "12": {
       "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -160,12 +160,12 @@
     "13": {
       "runner": "python3 day.py",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -173,12 +173,12 @@
     "14": {
       "runner": "python3 day.py",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -186,12 +186,12 @@
     "15": {
       "runner": "gleam run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -199,12 +199,12 @@
     "16": {
       "runner": null,
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -212,12 +212,12 @@
     "17": {
       "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -225,12 +225,12 @@
     "18": {
       "runner": "elixir day.exs",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -238,12 +238,12 @@
     "19": {
       "runner": "crystal run day.cr",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
@@ -251,77 +251,77 @@
     "20": {
       "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
     },
     "21": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
     },
     "22": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
     },
     "23": {
-      "runner": null,
+      "runner": "go run main.go",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
     },
     "24": {
-      "runner": null,
+      "runner": "python3 day.py",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }
     },
     "25": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": null,
         "time": null
       }

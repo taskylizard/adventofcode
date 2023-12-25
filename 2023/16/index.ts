@@ -85,17 +85,17 @@ const part1 = (input: string[][], start: Beam[] = [[-1, 0, 1]]) => {
 function part2(input: string[][]) {
   let max = 0;
 
-  input.forEach((_, y,) => {
+  input.forEach((_, y) => {
     const value1 = part1(input, [[-1, y, 1]]);
     const value2 = part1(input, [[input[y].length, y, 3]]);
     max = Math.max(max, value1, value2);
-  })
+  });
 
   input.forEach((_, x) => {
     const value1 = part1(input, [[x, -1, 0]]);
     const value2 = part1(input, [[x, input.length, 2]]);
     max = Math.max(max, value1, value2);
-  })
+  });
 
   return max;
 }
