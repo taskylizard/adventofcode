@@ -1,9 +1,9 @@
 import { existsSync } from "node:fs";
 import { join } from "pathe";
 import { defineCommand } from "citty";
-import { log, scaffoldDay } from "src/core/utils";
 import { createBuildContext } from "src/core/build";
 import { config as conf } from "src/core/io";
+import { scaffoldDay } from "src/core/generators/day";
 
 export default defineCommand({
   meta: {
@@ -28,17 +28,23 @@ export default defineCommand({
       description: "Template to use from the name of folder in templates/ folder.",
       alias: "t",
     },
+    builder: {
+      type: "string",
+      description: "Builder to use.",
+      alias: "b",
+      default: "esbuild",
+      valueHint: "esbuild|rolldown|jiti",
+    },
   },
   async run({ args }) {
-    const { year, day, template } = args;
+    const { year, day, template, builder } = args;
     const dir = join(year, day);
 
     if (!existsSync(dir)) {
       await scaffoldDay(year, day, template);
-      log.success(`Successfully scaffolded project for day ${day}, year ${year}.`);
     }
 
     const config = await conf.load(year);
-    return await createBuildContext({ dir, config, day });
+    return createBuildContext({ dir, config, day, builder });
   },
 });

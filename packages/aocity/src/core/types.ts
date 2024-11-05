@@ -1,7 +1,10 @@
+export type Builder = "esbuild" | "rolldown" | "jiti";
+
 interface Day {
   solved: boolean;
   result: any; // seems to be string, number blah
   time: null | number;
+  builder?: Builder;
 }
 
 export interface Config {
@@ -13,6 +16,7 @@ export interface Config {
       part2: Day;
     };
   };
+  builder?: Builder;
 }
 
 export interface SolutionContext {
@@ -74,4 +78,9 @@ export interface Solutions {
   part2?: Solution;
   /** Test cases for your solutions.*/
   tests?: Test[];
+}
+
+export interface BuilderContext {
+  reload: () => Promise<void>;
+  dispose: () => Promise<void> | void;
 }

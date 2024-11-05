@@ -7,8 +7,7 @@
     "esModuleInterop": true,
     "strict": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "types": ["vitest/types"]
+    "skipLibCheck": true
   },
   "include": ["**/*.ts", "2023/**/*.ts"],
   "exclude": ["node_modules", "dist"]

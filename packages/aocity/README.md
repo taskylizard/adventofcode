@@ -9,7 +9,7 @@ aocity is a elegant CLI for [Advent of Code](https://adventofcode.com).
 - Downloads your input file and saves it locally
 - [Template support for other languages](#templates)
 - [Testing support](#testing)
-- Supports both JavaScript and TypeScript, powered by ESBuild
+- Supports both JavaScript and TypeScript, powered by ESBuild (or experimentally, [Rolldown](#rolldown-support))
 - Provides an elegant `run()` function and utlities
 
 🚧 This project is under heavy development.
@@ -164,9 +164,28 @@ template folder.
 
 The next time, it will remember and will run your runner command on file changes.
 
+## Rolldown support
+
+Rolldown is an upcoming reimplementation of rollup, written in Rust, by the same team of Vite.
+
+It's still experimental and may not work depending on your mileage.
+
+To use it, install the `rolldown` package and set the builder to `rolldown` in your `.aocity.json`.
+
+```json
+{
+  "builder": "rolldown"
+}
+```
+Or add the builder flag to your `aoc start` command.
+
+```sh
+pnpm aoc start -d 1 -b rolldown
+```
+
 ## License
 
-Copyright (c) 2023 taskylizard. MIT Licensed.
+Copyright (c) 2024 taskylizard. MIT Licensed.
 
 <!-- Badges -->
 

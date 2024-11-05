@@ -1,12 +1,14 @@
 import type { Config } from "../types";
 import { dedent, toFixed } from "../utils";
 
-export function generateDayBadges(config: Config) {
-  return config.days
-    .map(({ part1, part2 }, index) => {
-      const day = String(index + 1).padStart(2, "0");
+export function generateDayBadges(config: Config): string {
+  return Object.entries(config.days)
+    .map((value) => {
+      const { part1, part2 } = value[1];
+      const day = value[0].padStart(2, "0");
 
       const color =
+        // eslint-disable-next-line no-nested-ternary
         (part1.solved && part2.solved) || (part1.solved && day === "25")
           ? "green"
           : part1.solved || part2.solved
@@ -22,13 +24,14 @@ export function generateDayBadges(config: Config) {
     .join("\n");
 }
 
-export function generateResults(config: Config) {
+export function generateResults(config: Config): string {
   let totalTime = 0;
   let totalStars = 0;
 
-  const results = config.days
-    .map(({ part1, part2 }, index) => {
-      const day = String(index + 1).padStart(2, "0");
+  const results = Object.entries(config.days)
+    .map((value) => {
+      const { part1, part2 } = value[1];
+      const day = value[0].padStart(2, "0");
 
       let timeBoth = 0;
 
@@ -50,9 +53,9 @@ export function generateResults(config: Config) {
       return dedent(`
       \`\`\`
       Day ${day}
-      Time part 1: ${part1.time !== null && part1.solved ? toFixed(part1.time) + "ms" : "-"}
-      Time part 2: ${part2.time !== null && part2.solved ? toFixed(part2.time) + "ms" : "-"}
-      Both parts: ${timeBoth !== 0 ? toFixed(timeBoth) + "ms" : "-"}
+      Time part 1: ${part1.time !== null && part1.solved ? `${toFixed(part1.time)}ms` : "-"}
+      Time part 2: ${part2.time !== null && part2.solved ? `${toFixed(part2.time)}ms` : "-"}
+      Both parts: ${timeBoth !== 0 ? `${toFixed(timeBoth)}ms` : "-"}
       \`\`\`
     `);
     })
@@ -68,7 +71,7 @@ export function generateResults(config: Config) {
   return [results, summary].join("\n\n");
 }
 
-export function generateReadme(config: Config) {
+export function generateReadme(config: Config): string {
   const badges = generateDayBadges(config);
   const results = generateResults(config);
 

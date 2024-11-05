@@ -13,6 +13,7 @@ const main = defineCommand({
   subCommands: {
     start: import("./cli/start").then(_def),
     init: import("./cli/init").then(_def),
+    readme: import("./cli/readme").then(_def),
   },
 });
 

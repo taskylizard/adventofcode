@@ -15,7 +15,7 @@ export default defineCommand({
     const firstYear = 2015;
     const currentYear = new Date().getFullYear();
 
-    const years = new Array(currentYear - firstYear + 1)
+    const years = Array.from({ length: currentYear - firstYear + 1 })
       .fill(firstYear)
       .map((val, i) => val + i)
       .reverse();
@@ -36,6 +36,6 @@ export default defineCommand({
     await fsp.writeFile(join(year, "package.json"), generatePackageJSON(year));
     await fsp.writeFile(join(year, ".aocity.json"), generateConfig(year));
     await fsp.writeFile(join(year, "README.md"), generateReadme(await config.load(year)));
-    log.success(`Sucessfully scaffolded a ${year} workspace.`);
+    log.success(`Sucessfully scaffolded workspace for ${year}.`);
   },
 });

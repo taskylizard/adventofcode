@@ -22,14 +22,17 @@
   "author": "taskylizard",
   "license": "MIT",
   "dependencies": {
+    "@antfu/utils": "^0.7.10",
     "aocjs": "workspace:^",
-    "chokidar": "^3.5.3",
-    "citty": "^0.1.5",
+    "chokidar": "^3.6.0",
+    "citty": "^0.1.6",
     "consola": "^3.2.3",
-    "dotenv": "^16.3.1",
-    "esbuild": "^0.19.8",
-    "execa": "^8.0.1",
-    "pathe": "^1.1.1",
-    "perfect-debounce": "^1.0.0"
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.19.12",
+    "execa": "^9.5.1",
+    "jiti": "^2.4.0",
+    "pathe": "^1.1.2",
+    "perfect-debounce": "^1.0.0",
+    "rolldown": "0.13.2-snapshot-378692a-20241105003303"
   }
 }

@@ -15,7 +15,6 @@ Library for the Advent of Code API.
 Install:
 
 ```sh
-[pnpm|npm|yarn|bun] init
 [pnpm|npm|yarn|bun] install aocjs
 ```
 
