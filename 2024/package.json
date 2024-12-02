@@ -1,0 +1,10 @@
+{
+  "name": "2024",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "aoc",
+    "adventofcode"
+  ],
+  "dependencies": {}
+}

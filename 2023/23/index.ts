@@ -74,7 +74,6 @@ function getGraph(input: string, { noUphill = false } = {}) {
 
       while (!current.destination.crossroads) {
         distance += current.distance;
-
         [prev, current] = [
           current.destination,
           current.destination.neighbors.filter((it: Edge<Path>) => it.destination !== prev)[0],

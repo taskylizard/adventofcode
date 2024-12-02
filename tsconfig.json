@@ -3,12 +3,11 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "baseUrl": ".",
     "esModuleInterop": true,
     "strict": true,
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts", "2023/**/*.ts"],
+  "include": ["**/*.ts", "2023/**/*.ts", "2024/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
