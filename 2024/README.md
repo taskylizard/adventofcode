@@ -1,15 +1,15 @@
 
-    <!-- Entries between SOLUTIONS and RESULTS tags are auto-generated -->
+<!-- Entries between SOLUTIONS and RESULTS tags are auto-generated -->
 
-    [![Advent of Code](https://badgen.net/badge/Advent%20of%20Code/2024/blue)](https://adventofcode.com/2024)
+[![Advent of Code](https://badgen.net/badge/Advent%20of%20Code/2024/blue)](https://adventofcode.com/2024)
 
-    # 🎄 Advent of Code 2024 🎄
+# 🎄 Advent of Code 2024 🎄
 
-    ## Solutions
+## Solutions
 
-    <!--SOLUTIONS-->
+<!--SOLUTIONS-->
 
-    ![Day](https://badgen.net/badge/01/%E2%98%86%E2%98%86/gray)
+![Day](https://badgen.net/badge/01/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/02/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/03/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/04/%E2%98%86%E2%98%86/gray)
@@ -35,251 +35,250 @@
 ![Day](https://badgen.net/badge/24/%E2%98%86%E2%98%86/gray)
 ![Day](https://badgen.net/badge/25/%E2%98%86%E2%98%86/gray)
 
-    <!--/SOLUTIONS-->
+<!--/SOLUTIONS-->
 
-    _Click a badge to go to the specific day._
+_Click a badge to go to the specific day._
 
-    ---
+---
 
-    ## Results
+## Results
 
-    <!--RESULTS-->
-
-    
-      ```
-      Day 01
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+<!--RESULTS-->
 
 
-      ```
-      Day 02
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+  ```
+  Day 01
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 03
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 02
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 04
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 03
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 05
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 04
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 06
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 05
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 07
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 06
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 08
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 07
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 09
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 08
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 10
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 09
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 11
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 10
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 12
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 11
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 13
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 12
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 14
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 13
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 15
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 14
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 16
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 15
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 17
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 16
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 18
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 17
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 19
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 18
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 20
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 19
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 21
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 20
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 22
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 21
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 23
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 22
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 24
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 23
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-      ```
-      Day 25
-      Time part 1: -
-      Time part 2: -
-      Both parts: -
-      ```
-    
+
+  ```
+  Day 24
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
 
-    ```
-    Total stars: 0/50
-    Total time: 0ms
-    ```
-  
 
-    <!--/RESULTS-->
+  ```
+  Day 25
+  Time part 1: -
+  Time part 2: -
+  Both parts: -
+  ```
 
-    ---
 
-    ✨🎄🎁🎄🎅🎄🎁🎄✨
-  
+
+```
+Total stars: 0/50
+Total time: 0ms
+```
+
+
+<!--/RESULTS-->
+
+---
+
+✨🎄🎁🎄🎅🎄🎁🎄✨
