@@ -1,6 +1,6 @@
 use itertools::Itertools;
 use rayon::prelude::*;
-use std::str::FromStr;
+use std::{str::FromStr, time::Instant};
 
 #[derive(Eq, PartialEq, Debug, Clone)]
 struct Grid {
@@ -103,6 +103,17 @@ fn main() {
 
     let search = Grid::from_str(input).unwrap();
 
-    println!("Part 1: {}", search.word_count(&"XMAS".to_string()));
-    println!("Part 2: {}", search.count_x_masses());
+    let p1 = Instant::now();
+    println!(
+        "Part 1: {} (took {:?})",
+        search.word_count(&"XMAS".to_string()),
+        p1.elapsed()
+    );
+
+    let p2 = Instant::now();
+    println!(
+        "Part 2: {} (took {:?})",
+        search.count_x_masses(),
+        p2.elapsed()
+    );
 }

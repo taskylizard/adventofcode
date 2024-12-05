@@ -8,4 +8,8 @@ edition = "2021"
 [dependencies]
 itertools = "0.13.0"
 num = "0.4.1"
-rayon = "*"
+rayon = "1"
+
+[profile.release]
+codegen-units = 1
+lto = false
