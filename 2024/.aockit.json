@@ -41,7 +41,7 @@
       }
     },
     "4": {
-      "runner": null,
+      "runner": "cargo run",
       "part1": {
         "solved": false,
         "result": null,
@@ -54,7 +54,7 @@
       }
     },
     "5": {
-      "runner": null,
+      "runner": "cargo run\n",
       "part1": {
         "solved": false,
         "result": null,
