@@ -1,5 +1,6 @@
 {
   "year": 2024,
+  "builder": null,
   "days": {
     "1": {
       "runner": null,
@@ -67,7 +68,7 @@
       }
     },
     "6": {
-      "runner": null,
+      "runner": "cargo run\n",
       "part1": {
         "solved": false,
         "result": null,
