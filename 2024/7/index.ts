@@ -1,4 +1,4 @@
-import { run } from "@aockit/core";
+import run from "../../../../packages/core/src/index";
 
 function count(part: 1 | 2, eq: bigint[], val: bigint, idx = 2): bigint {
   if (idx === eq.length) {
@@ -15,8 +15,8 @@ function count(part: 1 | 2, eq: bigint[], val: bigint, idx = 2): bigint {
 }
 
 run({
-  part1: ({ readInput }) => {
-    const lines = readInput("lines");
+  part1: (input) => {
+    const lines = input.read("lines");
 
     const nums = lines.map((eq) => eq.match(/\d+/g)!.map(BigInt));
 
@@ -26,8 +26,8 @@ run({
       .reduce((a, b) => a + b, 0n);
   },
 
-  part2: ({ readInput }) => {
-    const lines = readInput("lines");
+  part2: (input) => {
+    const lines = input.read("lines");
 
     const nums = lines.map((eq) => eq.match(/\d+/g)!.map(BigInt));
 
@@ -36,4 +36,39 @@ run({
       .map(([v]) => v)
       .reduce((a, b) => a + b, 0n);
   },
+  options: {
+    mode: "bench",
+    benchOptions: {
+      time: 1000,
+      name: "day 7",
+    },
+  },
+  bench: [
+    {
+      name: "Part 1",
+      solution: (input) => {
+        const lines = input.read("lines");
+
+        const nums = lines.map((eq) => eq.match(/\d+/g)!.map(BigInt));
+
+        return nums
+          .filter((eq) => count(1, eq, eq[1]))
+          .map(([v]) => v)
+          .reduce((a, b) => a + b, 0n);
+      },
+    },
+    {
+      name: "Part 2",
+      solution: (input) => {
+        const lines = input.read("lines");
+
+        const nums = lines.map((eq) => eq.match(/\d+/g)!.map(BigInt));
+
+        return nums
+          .filter((eq) => count(2, eq, eq[1]))
+          .map(([v]) => v)
+          .reduce((a, b) => a + b, 0n);
+      },
+    },
+  ],
 });

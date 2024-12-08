@@ -2,6 +2,8 @@
 //!
 //! Solution to AoC 2024 Day 6
 //! https://adventofcode.com/2024/day/6
+use std::time::Instant;
+
 use im::HashSet;
 use rayon::prelude::*;
 
@@ -128,6 +130,7 @@ fn collision(grid: &[Vec<Cell>], guard: &Guard) -> bool {
 fn main() {
     let input = include_str!("../input.txt");
 
+    let part1_start = Instant::now();
     let part1 = {
         let (grid, mut guard) = parse(input);
         let mut visited = vec![vec![false; grid[0].len()]; grid.len()];
@@ -152,7 +155,9 @@ fn main() {
 
         result.to_string()
     };
+    let part1_time = part1_start.elapsed().as_millis();
 
+    let part2_start = Instant::now();
     let part2 = {
         let (grid, guard) = parse(input);
 
@@ -190,6 +195,7 @@ fn main() {
         result.to_string()
     };
 
-    println!("Part 1: {}", part1);
-    println!("Part 2: {}", part2);
+    let part2_time = part2_start.elapsed().as_millis();
+    println!("Part 1: {} (took {}ms)", part1, part1_time);
+    println!("Part 2: {} (took {}ms)", part2, part2_time);
 }
