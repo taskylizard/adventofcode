@@ -25,3 +25,5 @@
 **/*.beam
 **/*.ez
 **/erl_crash.dump
+**/bin
+**/obj
