@@ -1,5 +1,4 @@
 use itertools::Itertools;
-use rayon::prelude::*;
 use std::collections::{HashSet, VecDeque};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
